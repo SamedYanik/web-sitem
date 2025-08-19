@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmler - Çevre Bilinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
+            <span>Çevre Bilinci</span>
+        </div>
+        
+        <nav class="header__nav">
+            <ul class="main-list">
+                <li class="list__item">
+                    <a href="{{ url_for('home') }}" class="nav-link">
+                        <span>Ana Sayfa</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="main__block">
+            <h1 class="main__title">Film Önerileri</h1>
+            <p class="main__subtitle">Haftalık film önerileri</p>
+        </div>
+
+        <div class="container">
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/karayip korsanları kapak fotoğrafı.jpeg') }}" alt="karayip korsanları" class="item__img" />
+                <div class="item__text">
+                    <h3>Karayip Korsanları: Siyah İnci'nin Laneti</h3>
+                    <p><strong>The Curse of the Black Pearl (2003)</strong></p>
+                    <p>Kurnaz ve eğlenceli korsan Jack Sparrow, lanetli gemi Siyah İnci'yi geri almak için genç demirci Will Turner ile iş birliği yapar. Will'in sevgilisi Elizabeth Swann, lanetli korsanlar tarafından kaçırılır. Jack ve Will onu kurtarırken laneti de kırmaya çalışır.</p>
+                    
+                    <h4>Film Hakkında:</h4>
+                    <ul>
+                        <li><strong>Yönetmen:</strong> Gore Verbinski</li>
+                        <li><strong>Oyuncular:</strong> Johnny Depp, Orlando Bloom, Keira Knightley</li>
+                        <li><strong>Tür:</strong> Macera, Aksiyon, Komedi</li>
+                        <li><strong>Süre:</strong> 143 dakika</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Daha fazla film önerisi eklenebilir -->
+            <div class="item reverse">
+                <img src="{{ url_for('static', filename='img/karayip korsanları kapak fotoğrafı.jpeg') }}" alt="film önerisi" class="item__img" />
+                <div class="item__text">
+                    <h3>Çevre Temalı Filmler</h3>
+                    <p>Çevre bilinci ve doğa koruma konusunda izleyebileceğiniz diğer filmler:</p>
+                    
+                    <h4>Önerilen Filmler:</h4>
+                    <ul>
+                        <li><strong>Wall-E (2008):</strong> Çevre kirliliği ve sürdürülebilirlik</li>
+                        <li><strong>Avatar (2009):</strong> Doğa ve çevre koruma</li>
+                        <li><strong>Interstellar (2014):</strong> İklim değişikliği ve gelecek</li>
+                        <li><strong>Tomorrow (2015):</strong> Sürdürülebilir yaşam</li>
+                        <li><strong>Before the Flood (2016):</strong> İklim değişikliği belgeseli</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main__block">
+            <div class="about-actions">
+                <a href="{{ url_for('home') }}" class="main__link btn-primary">Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+</body>
+</html>3
