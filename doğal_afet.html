@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğal Afetler - Çevre Bilinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
+            <span>Çevre Bilinci</span>
+        </div>
+        
+        <nav class="header__nav">
+            <ul class="main-list">
+                <li class="list__item">
+                    <a href="{{ url_for('home') }}" class="nav-link">
+                        <span>Ana Sayfa</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="main__block">
+            <h1 class="main__title">Doğal Afetler</h1>
+            <p class="main__subtitle">Doğal afetler hakkında bilgi edinin ve alınacak önlemleri öğrenin</p>
+        </div>
+
+        <div class="container">
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/çığ.jpeg') }}" alt="çığ" class="item__img" />
+                <div class="item__text">
+                    <h3>Çığ</h3>
+                    <p>Çığ, dağ yamaçlarındaki kar kütlelerinin aşağıya kaymasıdır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Tehlikeli bölgelerde çığ tünelleri yapmak</li>
+                        <li>Kar birikiminin tehlikeli olduğu zamanlarda o bölgelerden uzak durmak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item reverse">
+                <img src="{{ url_for('static', filename='img/deprem.jpeg') }}" alt="deprem" class="item__img" />
+                <div class="item__text">
+                    <h3>Deprem</h3>
+                    <p>Deprem, yer kabuğundaki fay hatlarının kırılmasıyla oluşur.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Depreme dayanıklı binalar inşa etmek</li>
+                        <li>Eşyaları sabitlemek</li>
+                        <li>Deprem çantası hazırlamak</li>
+                        <li>Tatbikat yapmak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/heyelan.jpeg') }}" alt="heyelan" class="item__img" />
+                <div class="item__text">
+                    <h3>Heyelan</h3>
+                    <p>Heyelan, toprak ve kaya kütlelerinin eğimli arazilerde kaymasıdır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Eğimli alanlarda ağaçlandırma yapmak</li>
+                        <li>Heyelan riski yüksek bölgelere yapı yapmamak</li>
+                        <li>Yol ve tünel güvenliğini sağlamak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item reverse">
+                <img src="{{ url_for('static', filename='img/hortum.jpeg') }}" alt="hortum" class="item__img" />
+                <div class="item__text">
+                    <h3>Hortum</h3>
+                    <p>Hortum, çok güçlü dönerek hareket eden fırtınalardır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Sağlam sığınaklar inşa etmek</li>
+                        <li>Erken uyarı sistemlerini takip etmek</li>
+                        <li>Açık alanlardan uzak durmak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/kuraklık.jpeg') }}" alt="kuraklık" class="item__img" />
+                <div class="item__text">
+                    <h3>Kuraklık</h3>
+                    <p>Kuraklık, uzun süre yağış olmaması sonucu su kaynaklarının azalmasıdır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Su tasarrufu yapmak</li>
+                        <li>Damla sulama sistemi kullanmak</li>
+                        <li>Kuraklığa dayanıklı bitki türleri yetiştirmek</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item reverse">
+                <img src="{{ url_for('static', filename='img/sel.jpeg') }}" alt="sel" class="item__img" />
+                <div class="item__text">
+                    <h3>Sel</h3>
+                    <p>Sel, aşırı yağış veya taşkın sonucu oluşur.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Dere yataklarına yapı yapmamak</li>
+                        <li>Yağmur suyu tahliye sistemlerini güçlendirmek</li>
+                        <li>Erken uyarı sistemleri kullanmak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/tsunami.jpeg') }}" alt="tsunami" class="item__img" />
+                <div class="item__text">
+                    <h3>Tsunami</h3>
+                    <p>Tsunami, deniz altı depremleri veya volkanik patlamalar sonucu oluşan dev dalgalardır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Erken uyarı sistemleri kurmak</li>
+                        <li>Tahliye planı yapmak ve kıyı bölgelerinde güvenli yüksek alanlara kaçış yolları belirlemek</li>
+                        <li>Kıyı şeridine yakın tehlikeli bölgelerde yapılaşmayı azaltmak</li>
+                        <li>Halkı bilinçlendirmek ve tatbikat yapmak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item reverse">
+                <img src="{{ url_for('static', filename='img/volkan patlaması.jpeg') }}" alt="volkan patlaması" class="item__img" />
+                <div class="item__text">
+                    <h3>Volkan Patlaması</h3>
+                    <p>Volkan Patlaması, lav, kül ve gazların yüzeye çıkmasıdır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Tehlikeli bölgeleri tahliye etmek</li>
+                        <li>Maske ve koruyucu ekipman bulundurmak</li>
+                        <li>Erken uyarı sistemleri kurmak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/yangın.jpeg') }}" alt="yangın" class="item__img" />
+                <div class="item__text">
+                    <h3>Orman Yangını</h3>
+                    <p>Orman Yangını, ormanlık alanlarda kontrolsüz şekilde yayılan yangınlardır.</p>
+                    <h4>Alınabilecek Önlemler:</h4>
+                    <ul>
+                        <li>Ormanda ateş yakmamak</li>
+                        <li>Çöpleri ve cam şişeleri doğada bırakmamak</li>
+                        <li>Yangın gözetleme kuleleri kurmak</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main__block">
+            <div class="about-actions">
+                <a href="{{ url_for('home') }}" class="main__link btn-primary">Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+</body>
+</html>
