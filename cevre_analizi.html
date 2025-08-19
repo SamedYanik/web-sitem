@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çevre Analizi - Çevre Bilinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
+            <span>Çevre Bilinci</span>
+        </div>
+        
+        <nav class="header__nav">
+            <ul class="main-list">
+                <li class="list__item">
+                    <a href="{{ url_for('home') }}" class="nav-link">
+                        <span>Ana Sayfa</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="main__block">
+            <h1 class="main__title">Çevre Görsel Analizi</h1>
+            <p class="main__subtitle">Yapay zeka ile çevre görsellerini analiz edin ve sınıflandırın</p>
+        </div>
+
+        <div class="main__block">
+            <div class="ai-upload-section">
+                <h2>Görsel Yükleme</h2>
+                <p>Analiz etmek istediğiniz çevre görselini yükleyin. AI sistemi görseli analiz ederek hangi çevre konusu olduğunu belirleyecektir.</p>
+                
+                <form action="{{ url_for('cevre_analiz') }}" method="POST" enctype="multipart/form-data" class="ai-form">
+                    <div class="form-group">
+                        <label for="image">Görsel Seçin</label>
+                        <input class="form__input" type="file" name="image" id="image" accept="image/*" required>
+                    </div>
+                </form>
+            </div>
+
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+
+            {% if image_url %}
+                <div class="uploaded-image-section">
+                    <h3>Yüklenen Görsel</h3>
+                    <div class="result-image">
+                        <img src="{{ image_url }}" alt="Yüklenen görsel" class="analyzed-image">
+                    </div>
+                    
+                    <!-- Analiz Et butonu resmin altında -->
+                    <form action="{{ url_for('cevre_analiz') }}" method="POST" enctype="multipart/form-data" class="ai-form">
+                        <input type="hidden" name="image" value="{{ image_url }}">
+                        <button type="submit" class="form__button btn-primary">Analiz Et</button>
+                    </form>
+                </div>
+            {% endif %}
+
+            {% if prediction %}
+                <div class="ai-result-section">
+                    <h2>Analiz Sonucu</h2>
+                    
+                    <div class="result-content">
+                        <h3>Tanınan Konu: <span class="prediction-highlight">{{ prediction }}</span></h3>
+                        
+                        {% if description %}
+                            <div class="description">
+                                <h4>Açıklama:</h4>
+                                <p>{{ description }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="main__block">
+            <div class="about-actions">
+                <a href="{{ url_for('home') }}" class="main__link btn-primary">Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+
+    <script>
+        // Dosya seçildiğinde hemen göster
+        document.getElementById('image').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Mevcut görsel bölümünü temizle
+                    const existingSection = document.querySelector('.uploaded-image-section');
+                    if (existingSection) {
+                        existingSection.remove();
+                    }
+                    
+                    // Yeni görsel bölümü oluştur
+                    const imageSection = document.createElement('div');
+                    imageSection.className = 'uploaded-image-section';
+                    imageSection.innerHTML = `
+                        <h3>Seçilen Görsel</h3>
+                        <div class="result-image">
+                            <img src="${e.target.result}" alt="Seçilen görsel" class="analyzed-image">
+                        </div>
+                        
+                        <!-- Analiz Et butonu resmin altında -->
+                        <button type="button" class="form__button btn-primary" onclick="analyzeImage()">Analiz Et</button>
+                    `;
+                    
+                    // Form'dan sonra ekle
+                    const form = document.querySelector('.ai-form');
+                    form.parentNode.insertBefore(imageSection, form.nextSibling);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Analiz fonksiyonu
+        function analyzeImage() {
+            const fileInput = document.getElementById('image');
+            if (fileInput.files.length > 0) {
+                // Orijinal form'u submit et
+                const originalForm = document.querySelector('.ai-form');
+                originalForm.submit();
+            } else {
+                alert('Lütfen önce bir dosya seçin!');
+            }
+        }
+    </script>
+</body>
+</html>
