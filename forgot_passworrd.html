@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şifre Sıfırla - Çevre Bilinci</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
+            <span>Çevre Bilinci</span>
+        </div>
+        
+        <nav class="header__nav">
+            <ul class="main-list">
+                <li class="list__item">
+                    <a href="{{ url_for('home') }}" class="nav-link">
+                        <span>Ana Sayfa</span>
+                    </a>
+                </li>
+                <li class="list__item">
+                    <a href="{{ url_for('login') }}" class="nav-link">
+                        <span>Giriş Yap</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-login">
+        <div class="login-container">
+            <div class="login__header">
+                <h1>Şifremi Unuttum</h1>
+                <p>Yeni şifrenizi belirlemek için bilgilerinizi girin</p>
+            </div>
+
+            <form action="{{ url_for('forgot_password') }}" method="POST" class="login">
+                {% if error %}
+                    <div class="error">{{ error }}</div>
+                {% endif %}
+                
+                {% if success %}
+                    <div class="success">{{ success }}</div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="email">E-posta Adresi</label>
+                    <input class="form__input" type="email" name="email" id="email" placeholder="E-posta adresiniz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="new_password">Yeni Şifre</label>
+                    <input class="form__input" type="password" name="new_password" id="new_password" placeholder="Yeni şifre" required>
+                </div>
+
+                <button type="submit" class="form__button btn-primary">Şifreyi Güncelle</button>
+                
+                <div class="login__links">
+                    <a href="{{ url_for('login') }}" class="form__button btn-secondary">Girişe Dön</a>
+                </div>
+                
+                <div class="login__back">
+                    <button type="button" class="btn btn-success" onclick="window.location.href='{{ url_for('home') }}'">
+                        Ana Sayfaya Dön
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+</body>
+</html>
